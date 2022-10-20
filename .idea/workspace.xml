@@ -9,7 +9,12 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f11afdb1-c7ee-4a79-929e-e995afa118ff" name="Default Changelist" comment="" />
+    <list default="true" id="f11afdb1-c7ee-4a79-929e-e995afa118ff" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-00-hello/src/test/java/com/xiong/HelloWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-00-hello/src/test/java/com/xiong/HelloWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-03-jdbcTemplate/src/main/resources/spring-jdbc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spring-03-jdbcTemplate/src/main/resources/spring-jdbc.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,6 +35,9 @@
         <option value="spring-beans.schema" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -76,6 +84,7 @@
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="28qNF8u4A2E9Sy4PCTkWqvSPL5y" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="false" />
@@ -87,6 +96,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable" value="ALL" />
@@ -337,12 +347,23 @@
       <workItem from="1660039069967" duration="1509000" />
       <workItem from="1660094170704" duration="216000" />
       <workItem from="1666258306485" duration="2075000" />
-      <workItem from="1666270875245" duration="2873000" />
+      <workItem from="1666270875245" duration="3528000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

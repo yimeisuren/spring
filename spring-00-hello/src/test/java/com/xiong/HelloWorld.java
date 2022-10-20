@@ -52,22 +52,15 @@ public class HelloWorld {
 
         Person person = context.getBean("person", Person.class);
         System.out.println("person = " + person);
-        Person human = context.getBean("human", Person.class);
-        System.out.println("human = " + human);
 
-        UserMapper userMapper01 = context.getBean("userMapper01", UserMapper.class);
-        userMapper01.show();
-        UserMapper userMapper02 = context.getBean("userMapper02", UserMapper.class);
-        userMapper02.show();
-
-//        由于设置了自定义的组件扫描过滤器, 因此下面getBean()会报错
-/*        Animal animal = context.getBean("animal", Animal.class);
-        System.out.println("animal = " + animal);*/
     }
 
     @Test
     public void annotationTest() {
         ApplicationContext context = new ClassPathXmlApplicationContext("beans_04_annotation.xml");
+
+        Person human = context.getBean("human", Person.class);
+        System.out.println("human = " + human);
 
         UserMapper userMapper01 = context.getBean("userMapper01", UserMapper.class);
         userMapper01.show();
