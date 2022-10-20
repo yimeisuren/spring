@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--xml方式配置自动注入, 实际情况使用注解实现, 注解实现需要额外开启注解扫描
+    使用ioc容器已经有的bean对象
+    byName方式: bean.id->class.field
+    byType方式: bean.class->class(这种情况下不能有多个id不同但class相同的实例Bean对象)
+-->
+    <bean id="human" class="com.xiong.pojo.Person" autowire="byName">
+
+    </bean>
+
+    <!--自动注入: 注解方式
+        需要开启注解配置和组件扫描
+
+        默认情况下, 组件扫描注入所有带Spring注解的类
+    -->
+    <context:annotation-config/>
+    <context:component-scan base-package="com.xiong" use-default-filters="true">
+        <!--添加组件扫描规则
+
+        Component和Repository之间相当于继承关系, 因此不能即排除又包含
+        -->
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+</beans>

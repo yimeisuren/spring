@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/spring-tx.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/spring-aop.xsd">
+    <!--    开启注解扫描-->
+    <context:component-scan base-package="com.xiong"/>
+
+
+    <!--数据库连接池的配置-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
+        <property name="url" value="jdbc:mysql://root@localhost:3306/jdbc"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+    </bean>
+
+    <!--配置jdbcTemplate并注入dataSource-->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--配置事务管理器对象-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--    配置通知-->
+    <tx:advice id="txadvice">
+        <!--  配置事务相关参数  -->
+        <tx:attributes>
+            <!-- add方法中开启事务-->
+            <tx:method name="add" propagation="REQUIRES_NEW"/>
+            <tx:method name="reduce"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <!--    配置切入点和切面-->
+    <aop:com.xiong.config>
+        <!--        配置切入点-->
+        <aop:pointcut id="pointcut" expression="execution(* com.xiong.com.xiong.service.*(..))"/>
+        <!--        配置切面-->
+        <aop:advisor advice-ref="txadvice" pointcut-ref="pointcut"/>
+    </aop:com.xiong.config>
+
+
+</beans>

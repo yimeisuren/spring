@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!-- ref表示引用注入, 也称为级联赋值.
+ref="address"表示引用id="address"的bean对象-->
+    <bean id="address" class="com.xiong.pojo.middle.Address">
+        <property name="province" value="广东省"/>
+        <property name="city" value="广州市"/>
+    </bean>
+
+    <!--
+    public class Person {
+        private Integer age;
+        //    基本数据类型
+        private String name;
+        //    自定义类型
+        private Address address;
+        //    数组
+        private String[] books;
+        //    List集合
+        private List<String> hobbies;
+        //    Map集合
+        private Map<Integer, String> card;
+        //    Set集合
+        private Set<String> games;
+        //    常用类Properties, 实际上也是Map
+        private Properties info;
+    }
+    -->
+    <bean id="person" class="com.xiong.pojo.Person">
+        <property name="name" value="root"/>
+        <property name="address" ref="address"/>
+        <property name="books">
+            <array>
+                <!--如果含有特殊符号, 可以使用CDATA表达式, 快捷键CD-->
+                <value>&lt;&lt;红楼梦&gt;&gt;</value>
+                <value><![CDATA[<<三国演义>>]]></value>
+                <value><![CDATA[<<西游记>>]]></value>
+                <value><![CDATA[<<水浒传>>]]></value>
+            </array>
+        </property>
+        <property name="hobbies">
+            <list>
+                <value>读书</value>
+                <value>学习软件操作</value>
+                <value>睡觉</value>
+            </list>
+        </property>
+        <property name="card">
+            <map>
+                <entry key="1" value="21A18518"/>
+                <entry key="2" value="21118221"/>
+            </map>
+        </property>
+        <property name="games">
+            <set>
+                <value>三国战记</value>
+                <value>天书奇谈</value>
+                <value>梦幻西游</value>
+                <value>王者荣耀</value>
+                <value>英雄联盟</value>
+            </set>
+        </property>
+        <property name="info">
+            <props>
+                <prop key="username">root</prop>
+                <prop key="password">root</prop>
+                <prop key="url">v4</prop>
+                <prop key="jdbcClassName">v5</prop>
+                <prop key="k6">v6</prop>
+                <prop key="k7">v7</prop>
+                <prop key="k8">v8</prop>
+                <prop key="k9">v9</prop>
+                <prop key="k10">v10</prop>
+            </props>
+        </property>
+    </bean>
+</beans>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--xmlns="http://www.springframework.org/schema/beans"根据该值修改-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation=
+               "http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/context
+                https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--开启注解的支持-->
+    <!--    <context:annotation-com.xiong.config/>-->
+    <!--开启注解的扫描 todo:指定扫描的包名-->
+    <!--    <context:component-scan base-package="mapper"/>-->
+    <!--扫描@Aspect注解, 如果有该注解将该类设置为代理类, 生成的对象即为代理对象-->
+    <!--    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>-->
+
+    <!--注入UserMapperImpl对象-->
+    <bean id="userMapper" class="com.xiong.mapper.impl.UserMapperImpl" scope="singleton">
+    </bean>
+    <!--注入UserService对象-->
+    <bean id="userService" class="com.xiong.service.UserService">
+        <property name="userMapper" ref="userMapper"/>
+    </bean>
+
+    <!--    工厂Bean对象: 定义的类型不作为返回值类型-->
+    <bean id="userFactory" class="com.xiong.factory.UserFactory">
+    </bean>
+
+    <bean id="xLifeCycle" class="com.xiong.lifecycle.XLifeCycle" init-method="init" destroy-method="destroy">
+        <property name="name" value="root"/>
+    </bean>
+
+    <!--后置处理器-->
+    <!--    <bean id="xBeanPostProcessor" class="com.xiong.lifecycle.XBeanPostProcessor"/>-->
+
+    <context:annotation-config/>
+    <context:component-scan base-package="com.xiong"/>
+</beans>

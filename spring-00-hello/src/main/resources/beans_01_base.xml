@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--通过空参构造创建User对象 + set()方法来属性注入, 交给ioc容器(Spring)管理, name属性也是设置别名, 且功能比alias标签更强大-->
+    <bean id="user01" class="com.xiong.pojo.User" name="customer, buyer">
+        <property name="name" value="user01"/>
+        <property name="age" value="01"/>
+    </bean>
+
+    <!--测试有参构造, Pet类中没有无参构造-->
+    <bean id="pet" class="com.xiong.pojo.Pet">
+        <constructor-arg name="name" value="大黄"/>
+    </bean>
+
+</beans>
